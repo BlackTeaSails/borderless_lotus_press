@@ -51,10 +51,11 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'boundless_lotus_press.urls'
 
+PROJECT_PATH = os.path.realpath(os.path.dirname(__name__))
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [PROJECT_PATH + '/templates/',],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
