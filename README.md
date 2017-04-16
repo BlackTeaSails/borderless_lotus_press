@@ -7,3 +7,8 @@ A simple Developer Blog for personal use which provides the next functionallity 
 ![Lotus Logo][logo]
 
 [logo]: https://github.com/panteleevnikita/borderless_lotus_press/blob/master/static/images/logo.png "Lotus"
+
+Lista de recursos de usar: 
+* [Cosmo para bootstrap 4](https://bootswatch.com/4-alpha/cosmo/)
+* [Campo de markdown para django](https://github.com/adi-/django-markdownx)
+* [pypandoc - Alternativa para markdown personalizado](https://pypi.python.org/pypi/pypandoc)
