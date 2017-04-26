@@ -1,7 +1,8 @@
-from django.contrib.auth import login, authenticate
+from django.contrib.auth import login, authenticate, logout
 from .forms import SignUpForm
 from django.shortcuts import render, redirect
 from django.contrib import messages
+
 
 
 def signup(request):
@@ -14,12 +15,13 @@ def signup(request):
             raw_password = form.cleaned_data.get('password1')
             user = authenticate(username=username, password=raw_password)
             login(request, user)
-            return redirect('/')
+            return redirect('login/')
     else:
         return redirect('login/')
 
 
 def reglog_view(request):
+    logout(request)
     form = SignUpForm()
     if request.method == 'POST':
         if 'register-submit' in request.POST:
@@ -41,3 +43,7 @@ def reglog_view(request):
             else:
                 messages.error(request, 'Fallo al entrar.')
     return render(request, 'registration/login.html', {'form': form})
+
+# Create your views here.
+def index(request):
+     return render(request, 'main/index.html')
