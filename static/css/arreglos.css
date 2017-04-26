@@ -36,3 +36,8 @@ body {
 div.highlight {
     padding: 2em;
 }
+
+/*Menu superior en un unica linea*/
+.nav-item {
+    white-space: nowrap;
+}
