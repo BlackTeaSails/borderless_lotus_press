@@ -2,6 +2,7 @@ from django.contrib.auth import login, authenticate, logout
 from .forms import SignUpForm
 from django.shortcuts import render, redirect
 from django.contrib import messages
+from django.forms.models import model_to_dict
 
 
 
@@ -43,6 +44,23 @@ def reglog_view(request):
             else:
                 messages.error(request, 'Fallo al entrar.')
     return render(request, 'registration/login.html', {'form': form})
+
+def profile_view(request):
+    form = SignUpForm(instance=request.user)
+    if request.method == 'POST':
+        form = SignUpForm(request.POST, instance=request.user)
+        if form.is_valid():
+            form.save()
+            username = form.cleaned_data.get('username')
+            raw_password = form.cleaned_data.get('password1')
+            user = authenticate(username=username, password=raw_password)
+            login(request, user)
+            messages.success(request, 'Sus datos han sido actualizados.')
+            return redirect('/')
+        else:
+            messages.error(request, 'Fallo al modificar.')
+            return redirect('/profile')
+    return render(request, 'principal/profile.html', {'form': form})
 
 # Create your views here.
 def index(request):
