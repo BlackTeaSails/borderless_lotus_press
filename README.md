@@ -4,10 +4,6 @@ A simple Developer Blog for personal use which provides the next functionallity 
 * Regular users can comment on the entries.
 * The entries use markdown.
 
-![Lotus Logo][logo]
-
-[logo]: https://github.com/panteleevnikita/borderless_lotus_press/blob/master/static/images/logo.png "Lotus"
-
 Lista de recursos de utiles: 
 * [Cosmo para bootstrap 4](https://bootswatch.com/4-alpha/cosmo/)
     - Implementado.
@@ -22,8 +18,17 @@ Lista de recursos de utiles:
 * Test Unitarios para Django
     - [Framework de pruebas unitarias de python](https://docs.python.org/3/library/unittest.html)
     - [Interfaz de las pruebas unitarias de unittest para django](https://docs.djangoproject.com/en/1.11/topics/testing/overview/)
+    - [Medida de cobertura de las pruebas en django](http://django-testing-docs.readthedocs.io/en/latest/coverage.html)
+
     - Seria interesante tenerlo sobre todo para las transformaciones a .md
-* [Automatizacion de construccion](http://pybuilder.github.io/)
+* Automatización de la construcción
+    - [Automatizacion de construccion](http://pybuilder.github.io/)
+    - Python posee su propia implementacion para las pruebas, pero no para automatización de los tests ni la construccion de las dependencias. :/
     - Para añadir la libreria que trate el .md lo primero y otras cosas como uwsgi, unittest o django mismo como dependencia.
     
 * [Articulo sobre estrategia de ramas](http://nvie.com/posts/a-successful-git-branching-model/)
+
+
+![Lotus Logo][logo]
+
+[logo]: https://github.com/panteleevnikita/borderless_lotus_press/blob/master/static/images/logo.png "Lotus"
