@@ -29,6 +29,10 @@ Lista de recursos de utiles:
 * [Articulo sobre estrategia de ramas](http://nvie.com/posts/a-successful-git-branching-model/)
 
 
+* Una alternativa posible es usar ansible para instalar las dependencias y ejecutar las tareas de testing de django:
+    - [manage.py de django con Ansible (incluye test)](http://docs.ansible.com/ansible/django_manage_module.html)
+    - [Pip con ansible (incluye venv)](http://docs.ansible.com/ansible/pip_module.html)
+
 ![Lotus Logo][logo]
 
 [logo]: https://github.com/panteleevnikita/borderless_lotus_press/blob/master/static/images/logo.png "Lotus"
