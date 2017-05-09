@@ -1,0 +1,5 @@
+django==1.11
+coverage
+django-markdownx
+django-nose
+pypandoc
