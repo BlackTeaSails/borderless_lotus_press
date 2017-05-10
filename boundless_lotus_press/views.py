@@ -42,7 +42,7 @@ def reglog_view(request):
                 login(request, user)
                 return redirect('/profile/')
             else:
-                messages.error(request, 'Fallo al entrar.')
+                messages.error(request, 'Fallo al entrar.', extra_tags='warning')
     return render(request, 'registration/login.html', {'form': form})
 
 def profile_view(request):
@@ -56,10 +56,9 @@ def profile_view(request):
             user = authenticate(username=username, password=raw_password)
             login(request, user)
             messages.success(request, 'Sus datos han sido actualizados.')
-            return redirect('/')
+
         else:
-            messages.error(request, 'Fallo al modificar.')
-            return redirect('/profile')
+            messages.error(request, 'Fallo al modificar.', extra_tags='danger')
     return render(request, 'principal/profile.html', {'form': form})
 
 # Create your views here.
