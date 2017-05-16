@@ -5,22 +5,6 @@ from django.contrib import messages
 from django.forms.models import model_to_dict
 
 
-
-def signup(request):
-    form = SignUpForm()
-    if request.method == 'POST':
-        form = SignUpForm(request.POST)
-        if form.is_valid():
-            form.save()
-            username = form.cleaned_data.get('username')
-            raw_password = form.cleaned_data.get('password1')
-            user = authenticate(username=username, password=raw_password)
-            login(request, user)
-            return redirect('login/')
-    else:
-        return redirect('login/')
-
-
 def reglog_view(request):
     logout(request)
     form = SignUpForm()
