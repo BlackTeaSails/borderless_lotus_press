@@ -21,7 +21,7 @@
           <div class="card-block">
             <div class="row">
               <div class="col-lg-12">
-                <form id="update-form" action="/profile/" method="post" role="form">
+                <form id="update-form" action="/auth/profile/" method="post" role="form">
                     {% csrf_token %}
                     {% for field in form %}
                         <div class="form-group">

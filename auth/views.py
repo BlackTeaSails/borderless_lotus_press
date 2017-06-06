@@ -44,7 +44,3 @@ def profile_view(request):
         else:
             messages.error(request, 'Fallo al modificar.', extra_tags='danger')
     return render(request, 'principal/profile.html', {'form': form})
-
-# Create your views here.
-def index(request):
-     return render(request, 'main/index.html')

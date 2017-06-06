@@ -4,13 +4,9 @@ from . import views
 
 
 class TestsViews(TestCase):
-
+    
     def setUp(self):
         user = User.objects.create_user('john', 'lennon@thebeatles.com', 'johnpassword')
-
-    def test_index_view(self):
-        response = self.client.get("/")
-        self.assertEqual(response.status_code, 200)
 
     def test_login_view(self):
         response = self.client.get("/login/")

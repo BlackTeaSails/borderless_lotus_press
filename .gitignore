@@ -1,6 +1,7 @@
 *.pyc
 *.pyo
 /djvenv
+/myenv
 db.sqlite3
 .coverage
 coverage.xml
