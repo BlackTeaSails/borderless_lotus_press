@@ -18,6 +18,8 @@ def reglog_view(request):
                 user = authenticate(username=username, password=raw_password)
                 login(request, user)
                 return redirect('/')
+            else:
+                return render(request, 'registration/login.html', {'form': form, 'registro': "True"})
         elif 'login-submit' in request.POST:
             username = request.POST['username']
             password = request.POST['password']
@@ -27,7 +29,7 @@ def reglog_view(request):
                 return redirect('/profile/')
             else:
                 messages.error(request, 'Fallo al entrar.', extra_tags='warning')
-    return render(request, 'registration/login.html', {'form': form})
+    return render(request, 'registration/login.html', {'form': form, 'registro': "False"})
 
 def profile_view(request):
     form = SignUpForm(instance=request.user)

@@ -55,8 +55,8 @@
           <div class="navbar-right" id="NavbarLogin">
               <ul class="navbar-nav mr-auto">
                   {% if user.is_authenticated %}
-                    <li class="nav-item" ><a id="bienvenida" class="nav-link caret" href="/auth/profile">Bienvenido, {{ user.username }}.</a></li> <li><a class="nav-link" href="/logout">Salir</a></li>
-                  {% else %}<li class="nav-item"><a class="nav-link" href="/auth/login">Entrar/Registrarse</a></li>{% endif %}
+                    <li class="nav-item" ><a id="bienvenida" class="nav-link caret" href="/auth/profile/">Bienvenido, {{ user.username }}.</a></li> <li><a class="nav-link" href="/auth/logout/">Salir</a></li>
+                  {% else %}<li class="nav-item"><a class="nav-link" href="/auth/login/">Entrar/Registrarse</a></li>{% endif %}
                   </ul>
           </div>
 
