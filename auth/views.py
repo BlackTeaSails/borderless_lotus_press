@@ -1,8 +1,10 @@
 from django.contrib.auth import login, authenticate, logout
 from .forms import SignUpForm
 from django.shortcuts import render, redirect
-from django.contrib import messages
+from django.contrib import messages # error and success messages
 from django.forms.models import model_to_dict
+from django.contrib.auth.models import User # password recovery
+from django.core.exceptions import ObjectDoesNotExist # password recovery - getting user by email
 
 
 def reglog_view(request):
@@ -46,3 +48,19 @@ def profile_view(request):
         else:
             messages.error(request, 'Fallo al modificar.', extra_tags='danger')
     return render(request, 'principal/profile.html', {'form': form})
+
+def recover_view(request):
+    if request.method == 'POST':
+        email = request.POST['email']
+        user = User()
+        try:
+            user = User.objects.get(email=email)
+        except ObjectDoesNotExist:
+            user = None
+
+        if user is not None:
+            # aqui se genera una contraseña nueva y se envia esta por email a través del gestor de mensajeria correspondiente.
+            messages.success(request, 'Se ha generado una contraseña nueva que ha sido enviada a su email.')
+        else:
+            messages.error(request, 'No se lo quien me dices.', extra_tags='warning')
+    return render(request, 'registration/recover.html', {})
