@@ -78,6 +78,8 @@ TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
 NOSE_ARGS = [
     '--with-coverage',
     '--cover-package=auth/,devblog/,main/',
+    '--verbosity=2',
+    '--cover-inclusive',
 ]
 
 # Database
