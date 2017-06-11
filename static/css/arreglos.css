@@ -46,10 +46,18 @@ div.highlight {
     white-space: nowrap;
 }
 
+/*Cambios en el pie para dejarlo oscuro*/
 footer>p {
   margin-bottom: 0px;
 }
 
 footer {
   padding-top: 1em;
+}
+
+/*los posts destacados deberian tener un padding abajo para no juntarse con el pie*/
+
+.container {
+  padding-top: 6em;
+  padding-bottom: 3em;
 }
