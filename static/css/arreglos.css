@@ -15,8 +15,11 @@ body {
   width: 100%;
   /* Set the fixed height of the footer here */
   height: 60px;
-  padding-left: 2em;
-  padding-right: 2em;
+  padding-left: 3em;
+  padding-right: 3em;
+  padding-bottom: 3em;
+  background-color: #373a3c;
+  color: #dddddd;
 }
 
 .inverse-dropdown{
@@ -24,13 +27,14 @@ body {
   border: 0px;
 }
 
-.inverse-dropdown>a{
+.footer a, .inverse-dropdown>a{
     color: #dddddd;
 }
 
-.inverse-dropdown>a:hover{
+.footer a:hover, .inverse-dropdown>a:hover{
     color: #fff;
     background-color: #373a3c;
+    text-decoration: none;
 }
 
 div.highlight {
@@ -40,4 +44,12 @@ div.highlight {
 /*Menu superior en un unica linea*/
 .nav-item {
     white-space: nowrap;
+}
+
+footer>p {
+  margin-bottom: 0px;
+}
+
+footer {
+  padding-top: 1em;
 }
