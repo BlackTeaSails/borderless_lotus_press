@@ -1,5 +1,6 @@
 {% extends 'principal/base.html' %}
 {% load static %}
+{% load dractags %}
 {% block content %}
 
 <div class="container ">
@@ -11,8 +12,9 @@
     {% for post in posts %}
     <div class="col-md-12">
       <h2>{{post.title}}</h2>
-      <p>{{post.content}}</p>
+      <p>{{post.formatted_markdown|safe_markdown}}</p>
       <p>{{post.author}}, {{post.published_date}}</p>
+
       <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
     </div>
     {% endfor %}

@@ -1,25 +1,31 @@
 /* Sticky footer styles
 -------------------------------------------------- */
 html {
-  position: relative;
+  position: absolute;
   min-height: 100%;
+  min-width: 100%
 }
 body {
   /* Margin bottom by footer height */
-  margin-bottom: 60px;
+  min-width: 100%;
+  margin-bottom: 0px;
 }
 
-.footer {
-  position: absolute;
+footer {
+  position: static;
+  display: block;
   bottom: 0;
+  z-index: 5;
   width: 100%;
   /* Set the fixed height of the footer here */
   height: 60px;
   padding-left: 3em;
   padding-right: 3em;
   padding-bottom: 3em;
+  margin-top: 2em;
   background-color: #373a3c;
   color: #dddddd;
+  overflow:hidden;
 }
 
 .inverse-dropdown{
@@ -52,12 +58,29 @@ footer>p {
 }
 
 footer {
-  padding-top: 1em;
+
+  padding-top: 1.5em;
+  bottom: 0;
 }
 
 /*los posts destacados deberian tener un padding abajo para no juntarse con el pie*/
 
+/*arreglos del pie para dejarlo siempre debajo del contenido y al fondo*/
 .container {
   padding-top: 6em;
   padding-bottom: 3em;
+}
+
+.page-wrap {
+  min-height: 100%;
+  /* equal to footer height */
+    margin-bottom: -60px;
+}
+.page-wrap:after {
+  content: "";
+  display: block;
+}
+footer, .page-wrap:after {
+  /* .push must be the same height as footer */
+    height: 60px;
 }
