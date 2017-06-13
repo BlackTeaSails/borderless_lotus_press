@@ -86,3 +86,7 @@ footer, .page-wrap:after {
   /* .push must be the same height as footer */
     height: 0px;
 }
+
+.card>.highlight{
+  background-color: transparent;
+}

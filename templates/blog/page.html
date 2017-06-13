@@ -1,11 +1,11 @@
 {% extends 'principal/shortpage.html' %}
 {% load static %}
 {% load dractags %}
+{% load custommarkdownify %}
 {% block content %}
 
 {% block morecss %}
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
-  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <link rel="stylesheet" href="{% static "css/pygmentize.css" %}">
 {% endblock morecss %}
 
 <div class="container ">
@@ -17,7 +17,7 @@
     {% for post in posts %}
     <div class="col-md-12">
       <h2>{{post.title}}</h2>
-      <p>{{post.formatted_markdown|safe_markdown}}</p>
+      <p>{{post.content | markdown | safe}}</p>
       <p>{{post.author}}, {{post.published_date}}</p>
 
       <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
