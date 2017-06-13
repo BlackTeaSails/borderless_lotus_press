@@ -2,6 +2,7 @@ from django.shortcuts import render
 from devblog.models import Post # el modelo a tratar
 from django.core.paginator import Paginator # Para paginar los posts
 from devblog.forms import PostFormDrace # para añadir un post nuevo o editarlo
+from django.contrib import messages # error and success messages
 
 def allpostsview(request, page_number):
     prefix = '/blog/page-'
@@ -26,6 +27,15 @@ def postsbyauthor(request, author_id, page_number):
 
 def newpost_view(request):
     form = PostFormDrace()
+    if request.method == 'POST':
+        form = PostFormDrace(request.POST)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.author = request.user
+            post.save()
+            messages.success(request, 'Se ha añadido el post nuevo.')
+        else:
+            messages.error(request, 'Fallo al crear el post.', extra_tags='danger')
     return render(request, 'blog/newpost.html', {'form':form})
 
 def calculate_pages(current_page, last_page):
