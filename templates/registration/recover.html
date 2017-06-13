@@ -1,9 +1,9 @@
-{% extends 'principal/base.html' %}
+{% extends 'principal/shortpage.html' %}
 {% load staticfiles %}
 
-{% block css %}
+{% block morecss %}
 <link rel="stylesheet" href="{% static "css/logreg.css" %}">
-{% endblock css %}
+{% endblock morecss %}
 
 {% block content %}
 <div class="container panel-recover">
@@ -39,7 +39,7 @@
 
                   <div class="form-group">
                     <div class="row">
-                      <div class="col-sm-6 offset-sm-3">
+                      <div class="col-xl-8 offset-xl-2">
                         <input type="submit" name="recover-submit" id="recover-submit" tabindex="4" class="form-control btn btn-primary" value="Generar nueva contraseña">
                       </div>
                     </div>

@@ -2,7 +2,6 @@ from django.core.management.base import BaseCommand
 from django.contrib.auth.models import User
 from devblog.models import Post, Comment
 
-mkd_content = """It **working**! :smile: [Python Learning](https://python.web.id)"""
 
 mkdx_content1 = """
 An h1 header
@@ -157,6 +156,9 @@ class Command(BaseCommand):
     help = 'Just fills the database with dummy data'
 
     def _create_users(self):
+        admin = User.objects.create_superuser('admin', 'admin@instador.com', 'administrador')
+        admin.save()
+
         user1 = User.objects.create_user('john', 'lennon@thebeatles.com', 'johnpassword')
         user1.save()
 
@@ -168,18 +170,18 @@ class Command(BaseCommand):
 
     def _create_posts(self):
         posts=[
-        Post(author_id=1, title="Dummy Post 1", content=mkd_content),
-        Post(author_id=2, title="Dummy Post 2", content=mkdx_content2),
+        Post(author_id=1, title="Dummy Post 1", content=mkdx_content2),
+        Post(author_id=2, title="Dummy Post 2", content=mkdx_content1),
         Post(author_id=2, title="Dummy Post 3", content=mkdx_content3),
-        Post(author_id=1, title="Another Dummy Post", content=mkd_content),
+        Post(author_id=1, title="Another Dummy Post", content=mkdx_content2),
         Post(author_id=2, title="One more Dummy Post", content=mkdx_content1),
-        Post(author_id=1, title="And another Dummy Post", content=mkd_content),
-        Post(author_id=3, title="Just one more Dummy Post", content=mkdx_content2),
-        Post(author_id=3, title="Wtf more Posts Dummy Post", content=mkd_content),
+        Post(author_id=1, title="And another Dummy Post", content=mkdx_content4),
+        Post(author_id=3, title="Just one more Dummy Post", content=mkdx_content1),
+        Post(author_id=3, title="Wtf more Posts Dummy Post", content=mkdx_content2),
         Post(author_id=2, title="Im tired of Dummy Posts", content=mkdx_content3),
-        Post(author_id=2, title="Here lies another Dummy Post", content=mkd_content),
+        Post(author_id=2, title="Here lies another Dummy Post", content=mkdx_content4),
         Post(author_id=1, title="JUST STOP Loocking for moar Dummy Posts", content=mkdx_content2),
-        Post(author_id=3, title="No comment, just  Dummy Posts", content=mkd_content)]
+        Post(author_id=3, title="No comment, just  Dummy Posts", content=mkdx_content1)]
         # rellenamos la base de datos con un monton de Posts 12 x 15
         for x in posts:
             x.save()
