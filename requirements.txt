@@ -1,5 +1,7 @@
 django==1.11
 coverage
-django-markdownx
 django-nose
 pypandoc
+mistune
+Pygments==2.2.0
+draceditor
