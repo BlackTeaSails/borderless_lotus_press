@@ -4,6 +4,10 @@
 {% load custommarkdownify %}
 {% block content %}
 
+{% block morecss %}
+    <link rel="stylesheet" href="{% static "css/pygmentize.css" %}">
+{% endblock morecss %}
+
 <!-- Main jumbotron for a primary marketing message or call to action -->
 <div class="jumbotron">
   <div class="container">
