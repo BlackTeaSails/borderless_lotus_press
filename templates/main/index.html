@@ -1,6 +1,7 @@
 {% extends 'principal/base.html' %}
 {% load static %}
 {% load dractags %}
+{% load custommarkdownify %}
 {% block content %}
 
 <!-- Main jumbotron for a primary marketing message or call to action -->
@@ -21,8 +22,8 @@
     {% for post in posts %}
     <div class="col-md-4">
       <h2>{{post.title}}</h2>
-      {{post.formatted_markdown|safe_markdown}}
-      <p>{{post.author}}, {{post.published_date}}</p>
+      {{post.content | markdown | safe}}
+      <p>{{post.published_date}}, by {{post.author}}</p>
       <p><a class="btn btn-secondary" href="/blog/post-{{ post.id }}" role="button">View details &raquo;</a></p>
     </div>
     {% endfor %}
