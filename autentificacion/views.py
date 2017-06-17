@@ -1,5 +1,5 @@
 from django.contrib.auth import login, authenticate, logout
-from .forms import SignUpForm, ModifyForm, OwnProfileForm # Para crear y modificar usuarios
+from .forms import SignUpForm, ModifyForm, OwnProfileForm, CustomSetPasswordForm # Para crear y modificar usuarios
 from django.shortcuts import render, redirect
 from django.contrib import messages # error and success messages
 from django.forms.models import model_to_dict # i doent remember what that was for
@@ -37,20 +37,31 @@ def reglog_view(request):
 
 def profile_view(request):
     prefix = '/auth/profile/'
-    form = OwnProfileForm(instance=request.user)
+    form = ModifyForm(instance=request.user)
     if request.method == 'POST':
-        form = OwnProfileForm(request.POST, instance=request.user)
+        form = ModifyForm(request.POST, instance=request.user)
         if form.is_valid():
             form.save()
-            username = form.cleaned_data.get('username')
-            raw_password = form.cleaned_data.get('password1')
-            user = authenticate(username=username, password=raw_password)
-            login(request, user)
             messages.success(request, 'Sus datos han sido actualizados.')
         else:
             messages.error(request, 'Fallo al modificar.', extra_tags='danger')
     return render(request, 'principal/profile.html', {'form': form, 'prefix':prefix, 'user_profile':request.user})
 
+def change_pass(request):
+    prefix = '/auth/change_pass/'
+    form_pass = CustomSetPasswordForm(request.user)
+    if request.method == 'POST':
+        form_pass = CustomSetPasswordForm(request.user, request.POST)
+        if form_pass.is_valid():
+            form_pass.save()
+            username = request.user.username
+            raw_password = form_pass.cleaned_data.get('new_password1')
+            user = authenticate(username=username, password=raw_password)
+            login(request, user)
+            messages.success(request, 'Su contraseña ha sido actualizadas.')
+        else:
+            messages.error(request, 'Fallo al modificar la contraseña.', extra_tags='danger')
+    return render(request, 'principal/profile.html', {'form': form_pass, 'prefix':prefix, 'user_profile':request.user})
 
 def modify_user(request, user_id):
     prefix = '/auth/edit/user-' + user_id + '/'

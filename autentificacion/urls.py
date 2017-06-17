@@ -12,4 +12,5 @@ urlpatterns = [
     url(r'^edit/(?:user-(?P<user_id>\d+)/)$', views.modify_user, name='modify_user'),
     url(r'^remove/(?:user-(?P<user_id>\d+)/)$', views.remove_user, name='remove_user'),
     url(r'^users/(?:page-(?P<page_number>\d+)/)$', views.user_list, name='users_list'),
+    url(r'^change_pass/$', views.change_pass, name='change_pass'),
 ]
