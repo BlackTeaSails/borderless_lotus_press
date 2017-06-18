@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://127.0.0.1:8000/" />
+<title>Registro_usuario_Casos incorrectos</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">Registro_usuario_Casos incorrectos</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>http://rurik.pythonanywhere.com/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Entrar/Registrarse</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=register-form-link</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id_username</td>
+	<td>Mateo95</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id_first_name</td>
+	<td>Jose</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id_last_name</td>
+	<td>Mateo Lopez</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id_email</td>
+	<td>jmmm@gmail.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id_password1</td>
+	<td>mateo</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id_password2</td>
+	<td>mateo</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=register-submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=register-form-link</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>id=registration_error</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>
