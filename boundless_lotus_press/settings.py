@@ -37,6 +37,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_nose',
+    'autentificacion',
+    'devblog',
+    'main',
+    'draceditor',
 ]
 
 MIDDLEWARE = [
@@ -70,6 +75,16 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'boundless_lotus_press.wsgi.application'
 
+# Use nose to run all tests
+TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
+
+# Tell nose to measure coverage on the 'foo' and 'bar' apps
+NOSE_ARGS = [
+    '--with-coverage',
+    '--cover-package=autentificacion/,devblog/,main/',
+    '--verbosity=2',
+    '--cover-inclusive',
+]
 
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
@@ -125,5 +140,49 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "static"),
     )
 
-LOGIN_REDIRECT_URL = "/profile"
+LOGIN_REDIRECT_URL = "auth/profile/"
 LOGOUT_REDIRECT_URL = "/"
+
+# Global draceditor settings
+# Input: string boolean, `true/false`
+DRACEDITOR_ENABLE_CONFIGS = {
+    'imgur': 'true',     # to enable/disable imgur/custom uploader.
+    'mention': 'false',  # to enable/disable mention
+    'jquery': 'true',    # to include/revoke jquery (require for admin default django)
+}
+
+# Imgur API Keys
+DRACEDITOR_IMGUR_CLIENT_ID = 'your-client-id'
+DRACEDITOR_IMGUR_API_KEY   = 'your-api-key'
+
+# Safe Mode
+DRACEDITOR_MARKDOWN_SAFE_MODE = True # default
+
+# Markdownify
+DRACEDITOR_MARKDOWNIFY_FUNCTION = 'draceditor.utils.markdownify' # default
+DRACEDITOR_MARKDOWNIFY_URL = '/draceditor/markdownify/' # default
+
+# Markdown extensions (default)
+DRACEDITOR_MARKDOWN_EXTENSIONS = [
+    'markdown.extensions.extra',
+    'markdown.extensions.nl2br',
+    'markdown.extensions.smarty',
+    'markdown.extensions.fenced_code',
+
+    # Custom markdown extensions.
+    'draceditor.extensions.urlize',
+    'draceditor.extensions.del_ins', # ~~strikethrough~~ and ++underscores++
+    'draceditor.extensions.mention', # require for mention
+    'draceditor.extensions.emoji',   # require for emoji
+]
+
+# Markdown Extensions Configs
+DRACEDITOR_MARKDOWN_EXTENSION_CONFIGS = {}
+
+# Markdown urls
+DRACEDITOR_UPLOAD_URL = '/draceditor/uploader/' # default
+DRACEDITOR_SEARCH_USERS_URL = '/draceditor/search-user/' # default
+
+# Markdown Extensions
+DRACEDITOR_MARKDOWN_BASE_EMOJI_URL = 'https://assets-cdn.github.com/images/icons/emoji/' # default
+DRACEDITOR_MARKDOWN_BASE_MENTION_URL = 'https://forum.dracos-linux.org/profile/' # default (change this)
