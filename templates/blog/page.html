@@ -1,0 +1,68 @@
+{% extends 'principal/shortpage.html' %}
+{% load static %}
+{% load dractags %}
+{% load custommarkdownify %}
+{% block content %}
+
+{% block morecss %}
+    <link rel="stylesheet" href="{% static "css/pygmentize.css" %}">
+{% endblock morecss %}
+
+<div class="container ">
+    <div class="card">
+      <h3 class="card-header ">Posts</h3>
+  <!-- Example row of columns -->
+  <div class="row highlight">
+    <!-- Iterar con un for sobre los posts correspondientes a la pagina -->
+    {% for post in posts %}
+    <div class="col-md-12">
+      <h2>{{post.title}}</h2>
+      <p>{{post.content | markdown | safe | truncatewords_html:50}}</p>
+      <p>{{post.author}}, {{post.published_date}}</p>
+
+      <p><a class="btn btn-secondary" href="{% url 'post' post_id=post.id %}" role="button">View details &raquo;</a></p>
+    </div>
+    {% endfor %}
+  </div>
+
+  <nav aria-label="Page navigation for posts">
+  <ul class="pagination justify-content-center">
+
+
+    <li class="page-item {% if page|add:"0" == 1 %} disabled{% endif %}">
+      <a class="page-link" href="{{ prefix}}{{ page|add:"-1" }}/">Previous</a>
+    </li>
+
+    {% for i in range %}
+      {% if i == page|add:"0" %}
+      <li class="page-item active">
+        <span class="page-link">
+          {{ i }}
+          <span class="sr-only">(current)</span>
+        </span>
+      </li>
+      {% else %}
+        <li class="page-item"><a class="page-link" href="{{ prefix}}{{ i }}/">{{ i }}</a></li>
+      {% endif %}
+    {% endfor %}
+
+    {% if page|add:"0" not in range %}
+    <li class="page-item active">
+      <span class="page-link">
+        {{ page }}
+        <span class="sr-only">(current)</span>
+      </span>
+    </li>
+    {% endif %}
+
+
+    <li class="page-item {% if page|add:"0" == last_page %} disabled {% endif %}">
+      <a class="page-link" href="{{ prefix}}{{ page|add:"1" }}/">Next</a>
+    </li>
+
+  </ul>
+</nav>
+</div>
+</div>
+
+{% endblock content %}
