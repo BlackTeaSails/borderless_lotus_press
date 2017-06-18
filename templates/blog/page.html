@@ -17,10 +17,10 @@
     {% for post in posts %}
     <div class="col-md-12">
       <h2>{{post.title}}</h2>
-      <p>{{post.content | markdown | safe}}</p>
+      <p>{{post.content | markdown | safe | truncatewords_html:50}}</p>
       <p>{{post.author}}, {{post.published_date}}</p>
 
-      <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+      <p><a class="btn btn-secondary" href="{% url 'post' post_id=post.id %}" role="button">View details &raquo;</a></p>
     </div>
     {% endfor %}
   </div>

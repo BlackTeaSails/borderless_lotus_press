@@ -38,6 +38,10 @@ def newpost_view(request):
             messages.error(request, 'Fallo al crear el post.', extra_tags='danger')
     return render(request, 'blog/newpost.html', {'form':form})
 
+def post_view(request, post_id):
+    post = Post.objects.get(id=post_id)
+    return render(request, 'blog/post.html', { 'post':post})
+
 def calculate_pages(current_page, last_page):
     # decidimos las paginas que añadir abajo segun las paginas totales y la pagina actual
     # se añaden las dos primeras, las dos ultimas, la actual y las dos de alrededor

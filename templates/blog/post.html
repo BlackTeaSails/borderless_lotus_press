@@ -1,0 +1,28 @@
+{% extends 'principal/shortpage.html' %}
+{% load static %}
+
+{% load custommarkdownify %}
+{% block content %}
+
+{% block morecss %}
+    <link rel="stylesheet" href="{% static "css/pygmentize.css" %}">
+{% endblock morecss %}
+
+<div class="container ">
+    <div class="card">
+      <h3 class="card-header ">Posts</h3>
+  <!-- Example row of columns -->
+  <div class="row highlight">
+    <!-- Iterar con un for sobre los posts correspondientes a la pagina -->
+
+    <div class="col-md-12">
+      <h2>{{post.title}}</h2>
+      <p>{{post.content | markdown | safe }}</p>
+      <p>{{post.author}}, {{post.published_date}}</p>
+    </div>
+  </div>
+
+</div>
+</div>
+
+{% endblock content %}
