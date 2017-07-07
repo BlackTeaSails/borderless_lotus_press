@@ -4,14 +4,14 @@ A simple Developer Blog for personal use which provides the next functionallity 
 * Regular users can comment on the entries.
 * The entries use markdown.
 
-Lista de recursos de utiles: 
+Lista de recursos de utiles:
 * [Cosmo para bootstrap 4](https://bootswatch.com/4-alpha/cosmo/)
     - Implementado.
-    
+
 * A eligir uno de lso dos siguientes (u otra opción que nos proporcione una funcionalidad similar):
     - [Campo de markdown para django](https://github.com/adi-/django-markdownx)
     - [pypandoc - Alternativa para markdown personalizado](https://pypi.python.org/pypi/pypandoc)
-    
+
 * [Despliegue con ngnix](http://uwsgi-docs.readthedocs.io/en/latest/tutorials/Django_and_nginx.html)
     - Tener en cuenta el donde se va a despliegar la aplicación y en que momento.
 * [Informacion sobre venv - entorno virtual](https://docs.python.org/3/library/venv.html)
@@ -25,7 +25,7 @@ Lista de recursos de utiles:
     - [Automatizacion de construccion](http://pybuilder.github.io/)
     - Python posee su propia implementacion para las pruebas, pero no para automatización de los tests ni la construccion de las dependencias. :/
     - Para añadir la libreria que trate el .md lo primero y otras cosas como uwsgi, unittest o django mismo como dependencia.
-    
+
 * [Articulo sobre estrategia de ramas](http://nvie.com/posts/a-successful-git-branching-model/)
 
 
@@ -36,3 +36,4 @@ Lista de recursos de utiles:
 ![Lotus Logo][logo]
 
 [logo]: https://github.com/panteleevnikita/borderless_lotus_press/blob/master/static/images/logo.png "Lotus"
+  - [Demo del proyecto](http://rurik.pythonanywhere.com/)
