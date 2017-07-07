@@ -1,5 +1,6 @@
 *.pyc
 *.pyo
+/myenv
 /djvenv
 /myenv
 db.sqlite3
