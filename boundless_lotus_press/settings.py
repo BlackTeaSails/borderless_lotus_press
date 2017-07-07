@@ -25,7 +25,7 @@ SECRET_KEY = 'vwsrppzek)0%3pqh0=n1iuk=%d^-=+vaa9h3l+0pwu5inqef-b'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['rurik.pythonanywhere.com',]
 
 
 # Application definition
